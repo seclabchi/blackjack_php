@@ -1,7 +1,7 @@
-//var drawTimerResult=setInterval(function () {drawCard()}, 200);
 
 function playerHit()
 {
+	drawCard();
 	$.post("game_interface.php", {gameAction:"HIT_STAND", playerAction:"HIT"}, function(data){
 		$("div.playerHand").html(data);
 		});
@@ -14,34 +14,41 @@ function playerStand()
 		});
 }
 
-function newGame()
-{
-	$.post("game_interface.php", {gameAction:"RESET"}, function(data){
-		$("div.playerHand").html(data);
-		});
-}
 
-var numRuns = 0;
 
-function drawCard()
+
+
+function drawCard(who)
 {
-	if(0 == numRuns)
+	if(who == "dealer")
 	{
 		$.post("card_interface.php", {getRandomCard:"TRUE"}, function(data){
-			$("div.dealerCard").html(data);
-			});
+			$("div.dealerHand").append(data);
+		});
 	}
 	else
 	{
 		$.post("card_interface.php", {getRandomCard:"TRUE"}, function(data){
-			$("div.dealerCard").append(data);
-			});
+			$("div.playerHand").append(data);
+		});
 	}
-	
-	numRuns++;
-	if(52 == numRuns)
-	{
-		numRuns = 0;
-	}
+		
+}
+
+function deal()
+{
+	drawCard("player");
+	drawCard("dealer");
+	drawCard("player");
+	drawCard("dealer");
+}
+
+function newGame()
+{
+	 $.post("game_interface.php", {gameAction:"RESET"}, function(data){
+		$("div.playerHand").html("");
+		$("div.dealerHand").html("");
+		});
+	deal();
 }
 

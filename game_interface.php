@@ -7,7 +7,7 @@ global $numStands;
 switch($_POST['gameAction'])
 {
 	case "RESET":
-		echo "GAME RESET<br/>";
+		//echo "GAME RESET<br/>";
 		$_SESSION['numHits'] = 0;
 		$_SESSION['numStands'] = 0;
 		$numHits = 0;
@@ -17,12 +17,12 @@ switch($_POST['gameAction'])
 		switch($_POST['playerAction'])
 		{
 			case "HIT":
-				echo "PLAYER HIT<br/>";
+				//echo "PLAYER HIT<br/>";
 				$numHits = ++$_SESSION['numHits'];
 				$numStands = $_SESSION['numStands'];
 				break;
 			case "STAND":
-				echo "PLAYER STAND<br/>";
+				//echo "PLAYER STAND<br/>";
 				$numHits = $_SESSION['numHits'];
 				$numStands = ++$_SESSION['numStands'];
 				break;
@@ -37,6 +37,6 @@ switch($_POST['gameAction'])
 $_SESSION['numHits'] = $numHits;
 $_SESSION['numStands'] = $numStands;
 
-echo $numHits." HITS / ".$numStands." STANDS";
+//echo $numHits." HITS / ".$numStands." STANDS";
 
 ?>
