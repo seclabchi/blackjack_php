@@ -1,0 +1,27 @@
+.playerHand
+{
+	font-size:24pt;
+	text-align:center;
+	font-family:sans-serif;
+}
+
+.dealerHand
+{
+	font-size:24pt;
+	text-align:center;
+	font-family:sans-serif;
+}
+
+.playerControl
+{
+	text-align:center;
+}
+
+.playerButton
+{
+	font-size:24pt;
+	background-color:#99FF99;
+	width:200px;
+	font-family:sans-serif;
+	
+}

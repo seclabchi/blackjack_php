@@ -2,15 +2,12 @@
 
 abstract class Person
 {
-	
 	private $hand = null;
 	
 	function __construct()
 	{
 		$this->hand = new Hand();
 	}
-	
-	
 	
 	public function getHand()
 	{
